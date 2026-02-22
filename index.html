@@ -1,358 +1,17 @@
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoCanje - Recicla y Gana</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Colores institucionales */
-        :root {
-            --verde: #2E7D32;
-            --azul: #1565C0;
-            --blanco: #FFFFFF;
-            --gris-claro: #f5f5f5;
-            --gris-oscuro: #333;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--verde), var(--azul));
-            color: var(--blanco);
-            padding: 60px 0 40px;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .slogan {
-            font-size: 1.5rem;
-            font-style: italic;
-            opacity: 0.95;
-            margin-bottom: 30px;
-        }
-
-        /* Navegación */
-        nav {
-            background-color: var(--blanco);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 15px 0;
-            flex-wrap: wrap;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: var(--gris-oscuro);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--verde);
-        }
-
-        /* Secciones */
-        section {
-            padding: 60px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        section:nth-child(even) {
-            background-color: var(--blanco);
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: var(--verde);
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-        }
-
-        h2:after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--azul);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--azul);
-            margin: 25px 0 15px;
-        }
-
-        /* Tarjetas */
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: var(--blanco);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #eaeaea;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(46, 125, 50, 0.15);
-        }
-
-        .card h4 {
-            color: var(--verde);
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 10px;
-        }
-
-        /* Tablas */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            font-size: 0.95rem;
-            background: var(--blanco);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        thead {
-            background-color: var(--verde);
-            color: var(--blanco);
-        }
-
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        tr:hover {
-            background-color: #f1f8e9;
-        }
-
-        /* Listas */
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Grid de características */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-
-        .feature-item {
-            background: var(--blanco);
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--verde);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 40px auto;
-        }
-
-        .timeline-item {
-            padding: 20px;
-            background: var(--blanco);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid var(--azul);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
-
-        .timeline-date {
-            font-weight: 700;
-            color: var(--verde);
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--gris-oscuro), #1a1a1a);
-            color: var(--blanco);
-            padding: 40px 0 20px;
-            text-align: center;
-        }
-
-        .footer-links {
-            margin: 20px 0;
-        }
-
-        .footer-links a {
-            color: #aaa;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--verde);
-        }
-
-        .ods {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .ods-item {
-            background: rgba(255,255,255,0.1);
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .copyright {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        /* Botones */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--verde);
-            color: var(--blanco);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #1e5622;
-        }
-
-        .btn-secundario {
-            background-color: var(--azul);
-        }
-
-        .btn-secundario:hover {
-            background-color: #0e4780;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-
-            .slogan {
-                font-size: 1.2rem;
-            }
-
-            nav ul li {
-                margin: 5px 10px;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            table {
-                font-size: 0.8rem;
-            }
-
-            th, td {
-                padding: 10px;
-            }
-        }
-
-        /* Badges */
-        .badge {
-            background-color: #e8f5e9;
-            color: var(--verde);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .highlight {
-            background-color: #fff3e0;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-    </style>
+    <title>EcoCanje Jalisco - Recicla y Gana</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">EcoCanje</div>
+            <div class="logo">EcoCanje Jalisco</div>
             <div class="slogan">"Separa bien, gana más"</div>
-            <p style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Sistema Municipal de Reciclaje y Recompensas</p>
+            <p style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Sistema Estatal de Reciclaje y Recompensas de Jalisco</p>
         </div>
     </header>
 
@@ -372,24 +31,24 @@
         <!-- Introducción -->
         <section id="inicio">
             <div class="container">
-                <h2>¿Por qué EcoCanje?</h2>
+                <h2>¿Por qué EcoCanje en Jalisco?</h2>
                 <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
                     <div style="flex: 1; min-width: 300px;">
-                        <p style="font-size: 1.2rem; margin-bottom: 20px;">En México generamos más de <span class="highlight">120,000 toneladas de basura</span> diariamente. Menos del 15% se recicla adecuadamente.</p>
-                        <p style="margin-bottom: 15px;">EcoCanje nace como una solución práctica que utiliza la tecnología móvil para:</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">En el estado de Jalisco se generan más de <span class="highlight">8,000 toneladas de residuos</span> diariamente. Menos del 12% se recicla adecuadamente.</p>
+                        <p style="margin-bottom: 15px;">EcoCanje Jalisco nace como una solución práctica que utiliza la tecnología móvil para:</p>
                         <ul style="font-size: 1.1rem;">
                             <li>✓ Enseñar a clasificar correctamente los residuos</li>
                             <li>✓ Incentivar el reciclaje con puntos canjeables</li>
                             <li>✓ Crear una comunidad comprometida con el medio ambiente</li>
-                            <li>✓ Conectar ciudadanos, gobierno y comercios locales</li>
+                            <li>✓ Conectar ciudadanía, gobierno estatal y comercios locales</li>
                         </ul>
                     </div>
                     <div style="flex: 1; min-width: 300px; background: linear-gradient(135deg, var(--verde), var(--azul)); padding: 40px; border-radius: 20px; color: white; text-align: center;">
                         <div style="font-size: 4rem; margin-bottom: 20px;">♻️</div>
-                        <div style="font-size: 2rem; font-weight: 700;">+15%</div>
-                        <p>Tasa actual de reciclaje</p>
+                        <div style="font-size: 2rem; font-weight: 700;">8% Aproximadamente</div>
+                        <p>Tasa actual de reciclaje estimada</p>
                         <div style="font-size: 2rem; font-weight: 700; margin-top: 20px;">30%</div>
-                        <p>Meta para el primer año</p>
+                        <p>Meta estatal a 3 años</p>
                     </div>
                 </div>
             </div>
@@ -402,19 +61,19 @@
                 <div class="card-container">
                     <div class="card">
                         <h4>🎯 General</h4>
-                        <p>Implementar una app que facilite la separación de residuos mediante reconocimiento por cámara y otorgue recompensas canjeables en comercios locales.</p>
+                        <p>Implementar una app estatal que facilite la separación de residuos mediante reconocimiento por cámara y otorgue recompensas canjeables en comercios de Jalisco.</p>
                     </div>
                     <div class="card">
                         <h4>📊 Reducción</h4>
-                        <p>Disminuir los residuos mal clasificados en un 40% durante el primer año.</p>
+                        <p>Disminuir los residuos mal clasificados en un 40% durante el primer año en el Área Metropolitana de Guadalajara.</p>
                     </div>
                     <div class="card">
-                        <h4>🏪 Comercios</h4>
-                        <p>Involucrar al menos a 50 comercios locales en el sistema de recompensas.</p>
+                        <h4>🏪 Puntos</h4>
+                        <p>Se usaría un sistema de puntos, mediante el cual, se canjearia por dinero usando la tarjeta naranja implementada por el gobierno de Jalisco, un ejemplo serían 50pts = 5mxn.</p>
                     </div>
                     <div class="card">
                         <h4>🌱 Conciencia</h4>
-                        <p>Crear conciencia ambiental mediante gamificación y estadísticas personalizadas.</p>
+                        <p>Crear conciencia ambiental mediante gamificación y estadísticas personalizadas para la población jalisciense.</p>
                     </div>
                 </div>
             </div>
@@ -437,11 +96,11 @@
                     </div>
                     <div class="feature-item">
                         <strong>🗺️ Mapa de puntos</strong><br>
-                        Ubica centros de acopio cercanos para facilitar el reciclaje.
+                        Ubica centros de acopio cercanos en Jalisco.
                     </div>
                     <div class="feature-item">
-                        <strong>🏷️ Tienda de recompensas</strong><br>
-                        Canjea puntos por descuentos en comercios locales.
+                        <strong>🏷️ Recompensas</strong><br>
+                    Sistema de canje de puntos para obetener recompensas.
                     </div>
                     <div class="feature-item">
                         <strong>📊 Estadísticas personales</strong><br>
@@ -477,7 +136,7 @@
                 <h2>Tecnología</h2>
 
                 <h3>Módulo de Visión por Computadora</h3>
-                <p>Modelo de inteligencia artificial entrenado con 50,000 fotografías etiquetadas. Precisión esperada: 85% en condiciones normales.</p>
+                <p>Modelo de inteligencia artificial entrenado con 50,000 fotografías etiquetadas de residuos comunes en Jalisco. Precisión esperada: 85% en condiciones normales.</p>
 
                 <table>
                     <thead>
@@ -493,7 +152,7 @@
                         <tr><td>Vidrio</td><td>Botellas, frascos, envases</td><td>Verde</td></tr>
                         <tr><td>Papel/Cartón</td><td>Periódico, cajas, folletos</td><td>Azul</td></tr>
                         <tr><td>Metal</td><td>Latas de aluminio, tapas</td><td>Amarillo</td></tr>
-                        <tr><td>Especiales</td><td>Pilas, electrónicos, medicamentos</td><td>Centro de acopio</td></tr>
+                        <tr><td>Especiales</td><td>Pilas, electrónicos, medicamentos</td><td>Centro de acopio autorizado</td></tr>
                     </tbody>
                 </table>
 
@@ -520,42 +179,42 @@
         <!-- Alianzas -->
         <section id="alianzas">
             <div class="container">
-                <h2>Modelo de Alianzas</h2>
+                <h2>Modelo de Alianzas en Jalisco</h2>
 
                 <div class="card-container">
                     <div class="card">
-                        <h4>🏛️ Gobierno Municipal</h4>
+                        <h4>🏛️ Gobierno del Estado de Jalisco</h4>
                         <p><strong>Responsabilidades:</strong></p>
                         <ul>
-                            <li>Instalar centros de acopio</li>
+                            <li>Instalar centros de acopio regionales</li>
                             <li>Subsidiar recompensas</li>
-                            <li>Promocionar la app</li>
+                            <li>Promocionar la app a nivel estatal</li>
                         </ul>
                         <p><strong>Beneficios:</strong></p>
                         <ul>
-                            <li>Menor costo de disposición</li>
-                            <li>Mayor vida útil del relleno</li>
-                            <li>Ciudadanos participativos</li>
+                            <li>Menor costo de disposición final</li>
+                            <li>Mayor vida útil de rellenos sanitarios</li>
+                            <li>Participación ciudadana activa</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h4>🏪 Comercios Locales</h4>
-                        <p><strong>Ofrecen:</strong> Descuentos reales del 5% al 30%</p>
+                        <h4>🏪 Tarjeta Naranja</h4>
+                        <p><strong>Ofrecen:</strong> Dinero a cambio de puntos.</p>
                         <p><strong>Reciben:</strong></p>
                         <ul>
-                            <li>Publicidad gratuita</li>
-                            <li>Nuevos clientes</li>
-                            <li>Mejora de imagen</li>
+                            <li>Dinero</li>
+                            <li>Más uso de la tarjeta</li>
+                            <li>Mejora de imagen ambiental</li>
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h4>📚 Escuelas</h4>
+                        <h4>📚 Escuelas de Jalisco</h4>
                         <p><strong>Programa "Escuela Verde":</strong></p>
                         <ul>
                             <li>Competencias entre grupos</li>
-                            <li>Salidas a centros de acopio</li>
+                            <li>Visitas a centros de reciclaje</li>
                             <li>Talleres ambientales</li>
                         </ul>
                     </div>
@@ -565,17 +224,17 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Comercio</th>
+                            <th>Acción</th>
                             <th>Producto/Servicio</th>
                             <th>Puntos</th>
-                            <th>Descuento</th>
+                            <th>Dinero</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Tortillería "La Mejor"</td><td>1 kg de tortillas</td><td>50</td><td>$5 MXN</td></tr>
-                        <tr><td>Farmacia San José</td><td>Compra mínima $200</td><td>100</td><td>$20 MXN</td></tr>
-                        <tr><td>Cine Municipal</td><td>Boleto de entrada</td><td>200</td><td>2x1</td></tr>
-                        <tr><td>Mercado Local</td><td>Canasta básica</td><td>500</td><td>$50 MXN</td></tr>
+                        <tr><td>Reciclaje en la esquina</td><td>1 kg de basura</td><td>50</td><td>$5 MXN</td></tr>
+                        <tr><td>Dar al camión de basura</td><td>Una bolsa</td><td>100</td><td>$10 MXN</td></tr>
+                        <tr><td>Cine comunitario</td><td>Ayudar con la basura</td><td>100</td><td>$10 MXN</td></tr>
+                        <tr><td>Mercado municipal</td><td>Ayudar con los residuos</td><td>50</td><td>$10 MXN</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -584,7 +243,7 @@
         <!-- Implementación -->
         <section id="implementacion">
             <div class="container">
-                <h2>Plan de Implementación</h2>
+                <h2>Plan de Implementación en Jalisco</h2>
 
                 <div class="card-container">
                     <div class="card">
@@ -593,7 +252,7 @@
                         <ul>
                             <li>Desarrollo del MVP</li>
                             <li>Entrenamiento del modelo IA</li>
-                            <li>Pruebas con 50 voluntarios</li>
+                            <li>Pruebas con 50 voluntarios del Área Metropolitana de Guadalajara</li>
                             <li>Ajustes y correcciones</li>
                         </ul>
                     </div>
@@ -602,10 +261,10 @@
                         <h4>Fase 2: Piloto</h4>
                         <p><span class="badge">6 meses</span></p>
                         <ul>
-                            <li>10 centros de acopio</li>
-                            <li>20 comercios participantes</li>
-                            <li>Campaña en 5 colonias</li>
-                            <li>1,000 usuarios registrados</li>
+                            <li>10 centros de acopio en Guadalajara, Zapopan y Tlaquepaque</li>
+                            <li>30 comercios participantes</li>
+                            <li>Campaña en colonias urbanas</li>
+                            <li>2,000 usuarios registrados</li>
                         </ul>
                     </div>
 
@@ -613,9 +272,9 @@
                         <h4>Fase 3: Expansión</h4>
                         <p><span class="badge">12 meses</span></p>
                         <ul>
-                            <li>Cobertura total del municipio</li>
-                            <li>70 comercios participantes</li>
-                            <li>5,000 usuarios activos</li>
+                            <li>Cobertura en el Área Metropolitana de Guadalajara</li>
+                            <li>100 comercios participantes</li>
+                            <li>10,000 usuarios activos</li>
                             <li>Versión iOS</li>
                         </ul>
                     </div>
@@ -624,10 +283,10 @@
                         <h4>Fase 4: Consolidación</h4>
                         <p><span class="badge">Continuo</span></p>
                         <ul>
-                            <li>100+ comercios</li>
-                            <li>10,000+ usuarios</li>
+                            <li>Expansión a municipios del interior del estado</li>
+                            <li>200+ comercios</li>
+                            <li>50,000+ usuarios</li>
                             <li>Mantenimiento continuo</li>
-                            <li>Expansión regional</li>
                         </ul>
                     </div>
                 </div>
@@ -642,10 +301,10 @@
                     <p style="font-size: 1.2rem; margin-bottom: 30px;">¿Interesado en sumarte al proyecto?</p>
 
                     <div style="background: var(--blanco); padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                        <p style="margin-bottom: 15px;"><strong>Dirección de Proyectos Especiales</strong></p>
-                        <p style="margin-bottom: 10px;">Municipio de [Nombre del Municipio]</p>
-                        <p style="margin-bottom: 10px;">📞 Teléfono: (XXX) XXX-XXXX</p>
-                        <p style="margin-bottom: 20px;">✉️ Correo: proyectos@municipio.gob.mx</p>
+                        <p style="margin-bottom: 15px;"><strong>Secretaría de Medio Ambiente y Desarrollo Territorial</strong></p>
+                        <p style="margin-bottom: 10px;">Gobierno del Estado de Jalisco</p>
+                        <p style="margin-bottom: 10px;">📞 Teléfono: (33) 0000-0000</p>
+                        <p style="margin-bottom: 20px;">✉️ Correo: ecocanje@jalisco.gob.mx</p>
 
                         <div style="display: flex; gap: 15px; justify-content: center;">
                             <a href="#" class="btn">Solicitar información</a>
@@ -659,8 +318,8 @@
 
     <footer>
         <div class="container">
-            <div class="logo" style="font-size: 2rem; margin-bottom: 10px;">EcoCanje</div>
-            <p style="margin-bottom: 20px;">Sistema Municipal de Reciclaje y Recompensas</p>
+            <div class="logo" style="font-size: 2rem; margin-bottom: 10px;">EcoCanje Jalisco</div>
+            <p style="margin-bottom: 20px;">Sistema Estatal de Reciclaje y Recompensas</p>
 
             <div class="footer-links">
                 <a href="#inicio">Inicio</a>
@@ -679,19 +338,16 @@
             </div>
 
             <div class="copyright">
-                <p>Documento elaborado por: Equipo Técnico EcoCanje</p>
+                <p>Documento elaborado por: Equipo Técnico EcoCanje Jalisco</p>
                 <p>Fecha: Febrero 2026 | Versión: 1.0</p>
-                <p style="margin-top: 15px;">© 2026 EcoCanje. Todos los derechos reservados.</p>
+                <p style="margin-top: 15px;">© 2026 EcoCanje Jalisco. Todos los derechos reservados.</p>
                 <p style="font-size: 0.8rem; margin-top: 10px;">Este documento puede ser reproducido total o parcialmente citando la fuente.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Botón flotante simple (opcional) -->
     <div style="position: fixed; bottom: 30px; right: 30px;">
         <a href="#inicio" style="background: var(--verde); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.2);">↑</a>
     </div>
 </body>
 </html>
-
-
