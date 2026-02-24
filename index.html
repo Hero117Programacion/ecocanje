@@ -28,7 +28,7 @@
     </nav>
 
     <main>
-        <!-- Introducción -->
+
         <section id="inicio">
             <div class="container">
                 <h2>¿Por qué EcoCanje en Jalisco?</h2>
@@ -54,7 +54,6 @@
             </div>
         </section>
 
-        <!-- Objetivos -->
         <section id="objetivos">
             <div class="container">
                 <h2>Objetivos del Proyecto</h2>
@@ -79,7 +78,6 @@
             </div>
         </section>
 
-        <!-- La App -->
         <section id="app">
             <div class="container">
                 <h2>La Aplicación</h2>
@@ -130,7 +128,6 @@
             </div>
         </section>
 
-        <!-- Tecnología -->
         <section id="tecnologia">
             <div class="container">
                 <h2>Tecnología</h2>
@@ -140,7 +137,7 @@
 
                 <table>
                     <thead>
-                        <tr>
+                        <tr class="SomUno">
                             <th>Categoría</th>
                             <th>Subcategorías</th>
                             <th>Contenedor</th>
@@ -159,7 +156,7 @@
                 <h3>Tabla de conversión de puntos</h3>
                 <table>
                     <thead>
-                        <tr>
+                        <tr class="SomUno">
                             <th>Material</th>
                             <th>Puntos por kg</th>
                         </tr>
@@ -176,7 +173,6 @@
             </div>
         </section>
 
-        <!-- Alianzas -->
         <section id="alianzas">
             <div class="container">
                 <h2>Modelo de Alianzas en Jalisco</h2>
@@ -223,7 +219,7 @@
                 <h3 style="margin-top: 40px;">Ejemplos de recompensas</h3>
                 <table>
                     <thead>
-                        <tr>
+                        <tr class="SomUno">
                             <th>Acción</th>
                             <th>Producto/Servicio</th>
                             <th>Puntos</th>
@@ -240,7 +236,6 @@
             </div>
         </section>
 
-        <!-- Implementación -->
         <section id="implementacion">
             <div class="container">
                 <h2>Plan de Implementación en Jalisco</h2>
@@ -293,7 +288,6 @@
             </div>
         </section>
 
-        <!-- Contacto -->
         <section id="contacto" style="border-bottom: none;">
             <div class="container">
                 <h2>Contacto</h2>
@@ -338,11 +332,7 @@
             </div>
 
             <div class="copyright">
-                <p>Documento elaborado por: </p>
-                <p>Asesora: Emilia Llamas Guerrero</p>
-                <p>René Ramírez Venegas</p>
-                <p> </p>
-                <p> </p>
+                <p>Documento elaborado por: Equipo Técnico EcoCanje Jalisco</p>
                 <p>Fecha: Febrero 2026 | Versión: 1.0</p>
                 <p style="margin-top: 15px;">© 2026 EcoCanje Jalisco. Todos los derechos reservados.</p>
                 <p style="font-size: 0.8rem; margin-top: 10px;">Este documento puede ser reproducido total o parcialmente citando la fuente.</p>
@@ -353,5 +343,25 @@
     <div style="position: fixed; bottom: 30px; right: 30px;">
         <a href="#inicio" style="background: var(--verde); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.2);">↑</a>
     </div>
+
+    <script>
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+        if(entry.isIntersecting){
+        entry.target.style.opacity=1;
+        entry.target.style.transform="translateY(0)";
+        }
+        });
+        },{threshold:.1});
+
+        sections.forEach(section=>{
+        section.style.opacity=0;
+        section.style.transform="translateY(40px)";
+        observer.observe(section);
+        });
+</script>
+
 </body>
 </html>
