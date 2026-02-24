@@ -5,26 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoCanje Jalisco - Recicla y Gana</title>
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
-<section id="galeria">
-  <div class="container">
-    <div class="galeria-3">
-      <div class="img-card">
-        <img src="static/Prepa 1.jpg" alt="Prepa Jalisco">
-      </div>
-      <div class="img-card">
-        <img src="static/STEAM.jpg" alt="Reto STEAM">
-      </div>
-      <div class="img-card">
-        <img src="static/UDG.png" alt="Universidad de Guadalajara">
-      </div>
-    </div>
-  </div>
-</section>
-
-    
     <header>
         <div class="container">
             <div class="logo">EcoCanje</div>
@@ -33,22 +17,36 @@
         </div>
     </header>
 
-<nav class="nav">
-  <input type="checkbox" id="menu-toggle">
-  <label for="menu-toggle" class="menu-icon">☰</label>
-
-  <ul class="nav-links">
-    <li><a href="#inicio">Inicio</a></li>
-    <li><a href="#objetivos">Objetivos</a></li>
-    <li><a href="#app">La App</a></li>
-    <li><a href="#tecnologia">Tecnología</a></li>
-    <li><a href="#alianzas">Alianzas</a></li>
-    <li><a href="#implementacion">Implementación</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-</nav>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+            <li><a href="#app">La App</a></li>
+            <li><a href="#tecnologia">Tecnología</a></li>
+            <li><a href="#alianzas">Alianzas</a></li>
+            <li><a href="#implementacion">Implementación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
     <main>
+        <!-- SECCIÓN GALERÍA MOVIDA DEBAJO DEL NAV -->
+        <section id="galeria">
+            <div class="container">
+                <h2>Nuestras Alianzas Educativas</h2>
+                <div class="galeria-3">
+                    <div class="img-card">
+                        <img src="static/Prepa 1.jpg" alt="Prepa Jalisco">
+                    </div>
+                    <div class="img-card">
+                        <img src="static/STEAM.jpg" alt="Reto STEAM">
+                    </div>
+                    <div class="img-card">
+                        <img src="static/UDG.png" alt="Universidad de Guadalajara">
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section id="inicio">
             <div class="container">
@@ -57,7 +55,7 @@
                     <div style="flex: 1; min-width: 300px;">
                         <p style="font-size: 1.2rem; margin-bottom: 20px;">En el estado de Jalisco se generan más de <span class="highlight">8,000 toneladas de residuos</span> diariamente. Menos del 12% se recicla adecuadamente.</p>
                         <p style="margin-bottom: 15px;">EcoCanje Jalisco nace como una solución práctica que utiliza la tecnología móvil para:</p>
-                        <ul style="font-size: 1.1rem;">
+                        <ul style="font-size: 1.1rem; list-style: none;">
                             <li>✓ Enseñar a clasificar correctamente los residuos</li>
                             <li>✓ Incentivar el reciclaje con puntos canjeables</li>
                             <li>✓ Crear una comunidad comprometida con el medio ambiente</li>
@@ -103,7 +101,7 @@
             <div class="container">
                 <h2>La Aplicación</h2>
 
-                <h3>Funcionalidades principales</h3>
+                <h3 style="margin-bottom:20px;">Funcionalidades principales</h3>
                 <div class="features-grid">
                     <div class="feature-item">
                         <strong>📸 Escáner de residuos</strong><br>
@@ -127,7 +125,7 @@
                     </div>
                 </div>
 
-                <h3>Flujo de uso diario</h3>
+                <h3 style="margin:40px 0 20px;">Flujo de uso diario</h3>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Paso 1: Registro</div>
@@ -153,12 +151,12 @@
             <div class="container">
                 <h2>Tecnología</h2>
 
-                <h3>Módulo de Visión por Computadora</h3>
+                <h3 style="margin-bottom:20px;">Módulo de Visión por Computadora</h3>
                 <p>Modelo de inteligencia artificial entrenado con 50,000 fotografías etiquetadas de residuos comunes en Jalisco. Precisión esperada: 85% en condiciones normales.</p>
 
                 <table>
                     <thead>
-                        <tr class="SomUno">
+                        <tr>
                             <th>Categoría</th>
                             <th>Subcategorías</th>
                             <th>Contenedor</th>
@@ -174,10 +172,10 @@
                     </tbody>
                 </table>
 
-                <h3>Tabla de conversión de puntos</h3>
+                <h3 style="margin:40px 0 20px;">Tabla de conversión de puntos</h3>
                 <table>
                     <thead>
-                        <tr class="SomUno">
+                        <tr>
                             <th>Material</th>
                             <th>Puntos por kg</th>
                         </tr>
@@ -202,13 +200,13 @@
                     <div class="card">
                         <h4>🏛️ Gobierno del Estado de Jalisco</h4>
                         <p><strong>Responsabilidades:</strong></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>Instalar centros de acopio regionales</li>
                             <li>Subsidiar recompensas</li>
                             <li>Promocionar la app a nivel estatal</li>
                         </ul>
                         <p><strong>Beneficios:</strong></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>Menor costo de disposición final</li>
                             <li>Mayor vida útil de rellenos sanitarios</li>
                             <li>Participación ciudadana activa</li>
@@ -219,7 +217,7 @@
                         <h4>🏪 Tarjeta Naranja</h4>
                         <p><strong>Ofrecen:</strong> Dinero a cambio de puntos.</p>
                         <p><strong>Reciben:</strong></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>Dinero</li>
                             <li>Más uso de la tarjeta</li>
                             <li>Mejora de imagen ambiental</li>
@@ -229,7 +227,7 @@
                     <div class="card">
                         <h4>📚 Escuelas de Jalisco</h4>
                         <p><strong>Programa "Escuela Verde":</strong></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>Competencias entre grupos</li>
                             <li>Visitas a centros de reciclaje</li>
                             <li>Talleres ambientales</li>
@@ -237,23 +235,25 @@
                     </div>
                 </div>
 
-                <h3 style="margin-top: 40px;">Ejemplos de recompensas</h3>
-                <table>
-                    <thead>
-                        <tr class="SomUno">
-                            <th>Acción</th>
-                            <th>Producto/Servicio</th>
-                            <th>Puntos</th>
-                            <th>Dinero</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Reciclaje en la esquina</td><td>1 kg de basura</td><td>50</td><td>$5 MXN</td></tr>
-                        <tr><td>Dar al camión de basura</td><td>Una bolsa</td><td>100</td><td>$10 MXN</td></tr>
-                        <tr><td>Cine comunitario</td><td>Ayudar con la basura</td><td>100</td><td>$10 MXN</td></tr>
-                        <tr><td>Mercado municipal</td><td>Ayudar con los residuos</td><td>50</td><td>$10 MXN</td></tr>
-                    </tbody>
-                </table>
+                <h3 style="margin: 40px 0 20px;">Ejemplos de recompensas</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Acción</th>
+                                <th>Producto/Servicio</th>
+                                <th>Puntos</th>
+                                <th>Dinero</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Reciclaje en la esquina</td><td>1 kg de basura</td><td>50</td><td>$5 MXN</td></tr>
+                            <tr><td>Dar al camión de basura</td><td>Una bolsa</td><td>100</td><td>$10 MXN</td></tr>
+                            <tr><td>Cine comunitario</td><td>Ayudar con la basura</td><td>100</td><td>$10 MXN</td></tr>
+                            <tr><td>Mercado municipal</td><td>Ayudar con los residuos</td><td>50</td><td>$10 MXN</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -265,7 +265,7 @@
                     <div class="card">
                         <h4>Fase 1: Prototipo</h4>
                         <p><span class="badge">4 meses</span></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>Desarrollo del MVP</li>
                             <li>Entrenamiento del modelo IA</li>
                             <li>Pruebas con 50 voluntarios del Área Metropolitana de Guadalajara</li>
@@ -276,7 +276,7 @@
                     <div class="card">
                         <h4>Fase 2: Piloto</h4>
                         <p><span class="badge">6 meses</span></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>10 centros de acopio en Guadalajara, Zapopan y Tlaquepaque</li>
                             <li>30 comercios participantes</li>
                             <li>Campaña en colonias urbanas</li>
@@ -287,7 +287,7 @@
                     <div class="card">
                         <h4>Fase 3: Expansión</h4>
                         <p><span class="badge">12 meses</span></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>Cobertura en el Área Metropolitana de Guadalajara</li>
                             <li>100 comercios participantes</li>
                             <li>10,000 usuarios activos</li>
@@ -298,7 +298,7 @@
                     <div class="card">
                         <h4>Fase 4: Consolidación</h4>
                         <p><span class="badge">Continuo</span></p>
-                        <ul>
+                        <ul style="margin-left:20px;">
                             <li>Expansión a municipios del interior del estado</li>
                             <li>200+ comercios</li>
                             <li>50,000+ usuarios</li>
@@ -309,7 +309,7 @@
             </div>
         </section>
 
-        <section id="contacto" style="border-bottom: none;">
+        <section id="contacto">
             <div class="container">
                 <h2>Contacto</h2>
                 <div style="text-align: center; max-width: 600px; margin: 0 auto;">
@@ -321,7 +321,7 @@
                         <p style="margin-bottom: 10px;">📞 Teléfono: (33) 0000-0000</p>
                         <p style="margin-bottom: 20px;">✉️ Correo: ecocanje@jalisco.gob.mx</p>
 
-                        <div style="display: flex; gap: 15px; justify-content: center;">
+                        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                             <a href="#" class="btn">Solicitar información</a>
                             <a href="#" class="btn btn-secundario">Registrar comercio</a>
                         </div>
@@ -366,23 +366,23 @@
     </div>
 
     <script>
+        // Script para animaciones suaves al hacer scroll
         const sections = document.querySelectorAll("section");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
 
-        const observer = new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-        if(entry.isIntersecting){
-        entry.target.style.opacity=1;
-        entry.target.style.transform="translateY(0)";
-        }
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = "translateY(40px)";
+            section.style.transition = "opacity 1s ease, transform 1s ease";
+            observer.observe(section);
         });
-        },{threshold:.1});
-
-        sections.forEach(section=>{
-        section.style.opacity=0;
-        section.style.transform="translateY(40px)";
-        observer.observe(section);
-        });
-</script>
-
+    </script>
 </body>
 </html>
