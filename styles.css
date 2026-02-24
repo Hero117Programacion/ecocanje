@@ -314,12 +314,10 @@ transition:.4s;
 }
 
 .img-card.lado{
-height:320px;
 opacity:.9;
 }
 
 .img-card.centro{
-height:420px;
 z-index:2;
 }
 
