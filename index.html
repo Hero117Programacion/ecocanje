@@ -3,377 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecocanje - Mantenimiento</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .maintenance-container {
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Barra de progreso superior */
-        .progress-bar {
-            height: 8px;
-            background: linear-gradient(90deg, #4caf50, #81c784, #a5d6a7);
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-            animation: shine 2s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        /* Encabezado ecológico */
-        .eco-header {
-            background: linear-gradient(135deg, #2e7d32, #388e3c, #43a047);
-            color: white;
-            padding: 40px 20px;
-        }
-
-        .eco-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            border: 3px solid white;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
-            50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(255,255,255,0.2); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
-        }
-
-        .eco-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 600;
-            letter-spacing: 2px;
-        }
-
-        .eco-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            font-style: italic;
-        }
-
-        /* Contenido principal */
-        .content {
-            padding: 40px 30px;
-        }
-
-        .maintenance-icon {
-            font-size: 80px;
-            color: #4caf50;
-            margin-bottom: 20px;
-            animation: spin 4s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .content h2 {
-            font-size: 2rem;
-            color: #1b5e20;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .content p {
-            color: #2e7d32;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Temporizador */
-        .timer-container {
-            background: #e8f5e8;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .timer-title {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #2e7d32;
-            margin-bottom: 15px;
-        }
-
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .timer-item {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 100px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .timer-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2e7d32;
-            line-height: 1;
-        }
-
-        .timer-label {
-            font-size: 0.9rem;
-            color: #66bb6a;
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-
-        /* Beneficios */
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .benefit-item {
-            text-align: center;
-            padding: 20px;
-            background: #f1f8e9;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .benefit-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .benefit-icon {
-            font-size: 40px;
-            color: #4caf50;
-            margin-bottom: 10px;
-        }
-
-        .benefit-item h3 {
-            font-size: 1.1rem;
-            color: #1b5e20;
-            margin-bottom: 5px;
-        }
-
-        .benefit-item p {
-            font-size: 0.9rem;
-            color: #66bb6a;
-            margin-bottom: 0;
-        }
-
-        /* Botones */
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: #4caf50;
-            color: white;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: #388e3c;
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #2e7d32;
-            border-color: #4caf50;
-        }
-
-        .btn-secondary:hover {
-            background: #e8f5e9;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        .footer {
-            background: #1b5e20;
-            color: white;
-            padding: 20px;
-            font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: #a5d6a7;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .eco-header h1 {
-                font-size: 2rem;
-            }
-            
-            .content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .timer-item {
-                min-width: 70px;
-                padding: 10px;
-            }
-            
-            .timer-number {
-                font-size: 1.8rem;
-            }
-            
-            .benefits {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animación de hojas */
-        .leaf {
-            position: absolute;
-            opacity: 0.1;
-            font-size: 24px;
-            pointer-events: none;
-            animation: float 15s linear infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); }
-            100% { transform: translateY(-100px) rotate(360deg); }
-        }
-    </style>
+    <title>EcoCanje Jalisco - Recicla y Gana</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="static/EcoCanje">
 </head>
 <body>
-    <!-- Hojas flotantes decorativas -->
-    <div class="leaf" style="left: 5%; animation-delay: 0s;">🌿</div>
-    <div class="leaf" style="left: 20%; animation-delay: 2s;">🍃</div>
-    <div class="leaf" style="left: 40%; animation-delay: 5s;">🌱</div>
-    <div class="leaf" style="left: 60%; animation-delay: 3s;">🌿</div>
-    <div class="leaf" style="left: 80%; animation-delay: 7s;">🍃</div>
-    <div class="leaf" style="left: 95%; animation-delay: 1s;">🌱</div>
-
-    <div class="maintenance-container">
-        <div class="progress-bar"></div>
-        
-        <div class="eco-header">
-            <div class="eco-icon">
-                ♻️
-            </div>
-            <h1>ECOCANJE</h1>
-            <p>Transformando residuos en oportunidades</p>
+    <header>
+        <div class="container">
+            <div class="logo">EcoCanje Jalisco</div>
+            <div class="slogan">"Separa bien, gana más"</div>
+            <p style="max-width: 600px; margin: 0 auto; font-size: 1.2rem;">Sistema Estatal de Reciclaje y Recompensas de Jalisco</p>
         </div>
+    </header>
 
-        <div class="content">
-            <div class="maintenance-icon">
-                🔧
-            </div>
-            
-            <h2>🌱 Sitio en Mantenimiento 🌱</h2>
-            
-            <p>
-                Estamos mejorando nuestra plataforma para ofrecerte una experiencia 
-                más ecológica y eficiente. Muy pronto podrás seguir canjeando tus 
-                materiales reciclables por beneficios sostenibles.
-            </p>
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#objetivos">Objetivos</a></li>
+            <li><a href="#app">La App</a></li>
+            <li><a href="#tecnologia">Tecnología</a></li>
+            <li><a href="#materiales">Materiales</a></li>
+            <li><a href="#alianzas">Alianzas</a></li>
+            <li><a href="#implementacion">Implementación</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
-            <div class="benefits">
-                <div class="benefit-item">
-                    <div class="benefit-icon">🌿</div>
-                    <h3>Más Puntos Verdes</h3>
-                    <p>Acumula más puntos por tus reciclajes</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">🏪</div>
-                    <h3>Nuevos Comercios</h3>
-                    <p>Más lugares para canjear tus puntos</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">📱</div>
-                    <h3>App Mejorada</h3>
-                    <p>Seguimiento en tiempo real de tus canjes</p>
+    <style>
+        .galeria-3{
+            margin: 0 50px 0 50px;
+        }
+    </style>
+
+        <main>
+        <!-- SECCIÓN GALERÍA MOVIDA DEBAJO DEL NAV -->
+        <section id="galeria">
+            <div class="container">
+                <div class="galeria-3">
+                    
+                    <div class="img-card">
+                        <img src="static/Prepa 1.png" alt="Prepa Jalisco">
+                    </div>
+                    
+                    <div class="img-card">
+                        <img src="static/EcoCanje" alt="Reto STEAM">
+                    </div>
+                    
+                    <div class="img-card">
+                        <img src="static/STEAM.png" alt="Reto STEAM">
+                    </div>
+                    
                 </div>
             </div>
+        </section>
 
+        <section id="inicio">
+            <div class="container">
+                <h2>¿Por qué EcoCanje en Jalisco?</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="font-size: 1.2rem; margin-bottom: 20px;">
+                            En el estado de Jalisco se generan más de <span class="highlight">8,000 toneladas de residuos</span> diariamente,
+                            de las cuales menos del 12% se recicla de manera adecuada. La gran mayoría termina en rellenos sanitarios
+                            o sin un tratamiento correcto.</p>
+                        <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">*Datos aproximados basados en fuentes oficiales y estudios ambientales en México.</p>
+                        <br>
+                        <p style="margin-bottom: 15px;">EcoCanje Jalisco nace como una solución práctica que utiliza la tecnología móvil para:</p>
+                        <ul style="font-size: 1.1rem;">
+                            <p style="font-size: 0.85rem; color: #64748b; margin-top: 10px;">*Datos aproximados basados en fuentes oficiales y estudios ambientales en México.</p>
+                            <li>✓ Enseñar a clasificar correctamente los residuos</li>
+                            <li>✓ Incentivar el reciclaje con puntos canjeables</li>
+                            <li>✓ Crear una comunidad comprometida con el medio ambiente</li>
+                            <li>✓ Conectar ciudadanía, gobierno estatal y comercios locales</li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; background: linear-gradient(135deg, var(--verde), var(--azul)); padding: 40px; border-radius: 20px; color: white; text-align: center;">
+                        <div style="font-size: 4rem; margin-bottom: 20px;">♻️</div>
+                        <div style="font-size: 2rem; font-weight: 700;">Menos del 12%</div>
+                        <p>Tasa actual de reciclaje estimada</p>
+                        <div style="font-size: 2rem; font-weight: 700; margin-top: 20px;">30%</div>
+                        <p>Meta estatal a 3 años</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objetivos">
+            <div class="container">
+                <h2>Objetivos del Proyecto</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <h4>🎯 General</h4>
+                        <p>Implementar una app estatal que reconozca al usuario mediante el escaneo de un QR y le otorgue puntos por reciclar.</p>
+                    </div>
+                    <div class="card">
+                        <h4>📊 Reducción</h4>
+                        <p>Disminuir los residuos mal clasificados en un 10% durante el primer año en el Área Metropolitana de Guadalajara.</p>
+                    </div>
+                    <div class="card">
+                        <h4>🏪 Puntos</h4>
+                        <p>Se usaría un sistema de puntos, mediante el cual, se canjearia por dinero usando la tarjeta naranja o donación a la Croz Roja, a Reforestar Jalisco o el Hogar Cabañas; implementada por el gobierno de Jalisco, un ejemplo serían 50pts = 5 pesos mexicanos.</p>
+                    </div>
+                    <div class="card">
+                        <h4>🌱 Conciencia</h4>
+                        <p>Crear conciencia ambiental mediante gamificación y estadísticas personalizadas para la población jalisciense.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="app">
+            <div class="container">
+                <h2>La Aplicación</h2>
+
+                <h3>Funcionalidades principales</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <strong>📱 Módulo Inteligente</strong><br>
+                        Verifica al usuario y le asigna los puntos correspondientes al reciclar.
+                        <br>
+                        Módulo inteligente, calcula la cantidad de residuos y usa un código interno para transformar los 
+                        kilogramos en puntos, coordinado con python y Realtime para precisión y velocidad a la hora de editar 
+                        los puntos del usuario en una Base de Datos.
+                    </div>
+                    <div class="feature-item">
+                        <strong>🗺️ Mapa de puntos</strong><br>
+                        Ubica centros de acopio cercanos en Jalisco.
+                    </div>
+                    <div class="feature-item">
+                        <strong>🏷️ Recompensas</strong><br>
+                    Sistema de canje de puntos para obetener recompensas.
+                    </div>
+                    <div class="feature-item">
+                        <strong>📊 Estadísticas personales</strong><br>
+                        Muestra historial, logros y motivación mediante gamificación.
+                    </div>
+                </div>
+
+                <br><br>
+
+                <h3>Flujo de uso diario</h3><br>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Paso 1: Registro</div>
+                        <p>Descarga gratuita, registro con correo válido y verificar cuenta</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Paso 2: Escaneo</div>
+                        <p>Abrir app, escanear QR, escoger el tipo de residuo</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Paso 3: Acumulación</div>
+                        <p>Depositar residuos en el centro de acopio, seguir indicaciones, recibir puntos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologia">
+            <div class="container">
+                <h2>Residuos</h2>
+
+
+                <table>
+                    <thead>
+                        <tr class="SomUno">
+                            <th>Categoría</th>
+                            <th>Subcategorías</th>
+                            <th>Contenedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Plástico</td><td>PET, HDPE, PVC, LDPE</td><td>Amarillo</td></tr>
+                        <tr><td>Vidrio</td><td>Botellas, frascos, envases</td><td>Verde</td></tr>
+                        <tr><td>Papel/Cartón</td><td>Periódico, cajas, folletos</td><td>Azul</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Tabla de conversión de puntos</h3>
+                <table>
+                    <thead>
+                        <tr class="SomUno">
+                            <th>Material</th>
+                            <th>Puntos por kg</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Papel/Cartón</td><td>15 puntos</td></tr>
+                        <tr><td>Plástico PET</td><td>50 puntos</td></tr>
+                        <tr><td>Vidrio</td><td>8 puntos</td></tr>
+                    </tbody>
+                </table>
+                <p><small>10 puntos = $1 MXN. Mínimo para canjear: 50 puntos. Vigencia: 6 meses.</small></p>
+            </div>
+        </section>
+
+
+        <section id="materiales">
+    <div class="container">
+        <h2>Tecnología y Materiales del Sistema</h2>
+
+        <p style="font-size:1.1rem; margin-bottom:25px;">
+        Para el funcionamiento del contenedor inteligente de EcoCanje se utilizan componentes electrónicos
+        accesibles y de bajo costo que permiten identificar usuarios, medir residuos y registrar puntos automáticamente.
+        </p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h4>📷 Escáner de Usuario</h4>
+                <ul>
+                    <li>Módulo ESP32-CAM con cámara</li>
+                    <li>Lectura de códigos QR</li>
+                    <li>Conexión WiFi al sistema</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>⚖️ Sistema de Pesaje</h4>
+                <ul>
+                    <li>Celda de carga (Load Cell)</li>
+                    <li>Amplificador HX711</li>
+                    <li>Medición automática del peso del residuo</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>🧠 Controlador Principal</h4>
+                <ul>
+                    <li>Microcontrolador ESP32</li>
+                    <li>Procesamiento de datos</li>
+                    <li>Cálculo de puntos por material</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>🚪 Sistema de Apertura</h4>
+                <ul>
+                    <li>Servo motor</li>
+                    <li>Apertura del contenedor al presionar un pulsador</li>
+                    <li>Control según tipo de residuo</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>📡 Conectividad</h4>
+                <ul>
+                    <li>Conexión WiFi integrada</li>
+                    <li>Comunicación con base de datos en la nube</li>
+                    <li>Registro en tiempo real</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h4>🔋 Alimentación</h4>
+                <ul>
+                    <li>Fuente de 5V / 2A</li>
+                    <li>Regulador de voltaje</li>
+                    <li>Opcional: batería de respaldo</li>
+                </ul>
+            </div>
 
         </div>
 
-        <div class="footer">
-            <p>🌍 Contacto: <a href="mailto:info@ecocanje.com">info@ecocanje.com</a> | ECOCANJE</p>
-            <p style="margin-top: 10px; opacity: 0.8;">♻️ Juntos hacemos un mundo más verde - Todos los derechos reservados © 2026</p>
+        <h3 style="margin-top:40px;">Costo estimado por contenedor</h3>
+
+        <table>
+            <thead>
+                <tr class="SomUno">
+                    <th>Componente</th>
+                    <th>Costo aproximado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>ESP32-CAM</td><td>$300 MXN</td></tr>
+                <tr><td>ESP32-WROOM</td><td>$250 MXN</td></tr>
+                <tr><td>Amplificador HX711</td><td>$125 MXN</td></tr>
+                <tr><td>Pulsadores, Cables, Servos</td><td>$400 MXN</td></tr>
+                <tr><td>Fuente de alimentación</td><td>$200 MXN</td></tr>
+                <tr><td>Estructura del contenedor</td><td>$1200 MXN</td></tr>
+            </tbody>
+        </table>
+
+        <p><small>Costo total estimado por contenedor inteligente: $2500 MXN aproximadamente dependiendo del diseño.</small></p>
+    </div>
+</section>
+
+                <div style="text-align: center; margin: 30px 0;">
+                    <img src="static/foto.png" alt="Sistema de reciclaje" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+              </div>
+
+        <section id="alianzas">
+            <div class="container">
+                <h2>Modelo de Alianzas en Jalisco</h2>
+
+                <div class="card-container">
+                    <div class="card">
+                        <h4>🏛️ Gobierno del Estado de Jalisco</h4>
+                        <p><strong>Responsabilidades:</strong></p>
+                        <ul>
+                            <li>Instalar centros de acopio en escuelas</li>
+                            <li>Subsidiar recompensas</li>
+                            <li>Promocionar la app a nivel estatal</li>
+                        </ul>
+                        <p><strong>Beneficios:</strong></p>
+                        <ul>
+                            <li>Menor costo de disposición final</li>
+                            <li>Mayor vida útil de rellenos sanitarios</li>
+                            <li>Participación ciudadana activa</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>💳 Tarjeta Naranja o Mi Movilidad</h4>
+                        <p><strong>Rol en EcoCanje:</strong></p>
+                        <ul style="margin-left:20px;">
+                            <li>Provee la infraestructura financiera para depositar las recompensas.</li>
+                            <li>Actúa como el "banco" del sistema de reciclaje.</li>
+                            <li>Garantiza la transferencia instantánea y segura de dinero a los usuarios.</li>
+
+                    </div>
+
+                </div>
+
+                <h3 style="margin: 40px 0 20px;">Ejemplo del Ciclo de Recompensa</h3>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Material Reciclado</th>
+                                <th>Cantidad</th>
+                                <th>Puntos EcoCanje</th>
+                                <th>Dinero en Tarjeta Naranja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Vidrio</td><td>3 kg</td><td>24</td><td>No aplica (mínimo no alcanzado)</td></tr>
+                            <tr><td>Plástico PET</td><td>5 kg</td><td>250</td><td>$25 MXN</td></tr>
+                            <tr><td>Papel/Cartón</td><td>10 kg</td><td>150</td><td>$15 MXN</td></tr>
+                            <tr><td><strong>Acumulado total</strong></td><td><strong>-</strong></td><td><strong>424 puntos</strong></td><td><strong>¡$40 MXN depositados!</strong> (Ejemplo con tasa 10 pts = $1)*</td></tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="implementacion">
+            <div class="container">
+                <h2>Plan de Implementación en Jalisco</h2>
+
+                <div class="card-container">
+                    <div class="card">
+                        <h4>Fase 1: Prototipo</h4>
+                        <p><span class="badge">4 meses</span></p>
+                        <ul>
+                            <li>Desarrollo del Modelo</li>
+                            <li>Pruebas en escuelas de la Secretaría de Educación y UDG</li>
+                            <li>Ajustes y correcciones</li>
+                            <li>Aplicaciones para IOS y Android</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Fase 2: Piloto</h4>
+                        <p><span class="badge">6 meses</span></p>
+                        <ul>
+                            <li>10 centros de acopio en Guadalajara, Zapopan y Tlaquepaque</li>
+                            <li>Campaña en colonias urbanas</li>
+                            <li>2,000 usuarios registrados</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Fase 3: Expansión</h4>
+                        <p><span class="badge">12 meses</span></p>
+                        <ul>
+                            <li>Cobertura en el Área Metropolitana de Guadalajara</li>
+                            <li>10,000 usuarios activos</li>
+                            <li>Página Web Funcional</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Fase 4: Consolidación</h4>
+                        <p><span class="badge">Continuo</span></p>
+                        <ul>
+                            <li>Expansión a municipios del interior del estado</li>
+                            <li>50,000+ usuarios</li>
+                            <li>Mantenimiento continuo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" style="border-bottom: none;">
+            <div class="container">
+                <h2>Reto STEAM Jalisco 2026</h2>
+                <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+
+                    <div style="background: var(--blanco); padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                        <p style="margin-bottom: 14px;"><strong>Asesora: Emilia Llamas Guerrero</strong></p>
+                        <p style="margin-bottom: 10px;">Equipo:<strong></p>
+                        <p style="margin-bottom: 10px;">René Ramírez Venegas</p>
+                        <p style="margin-bottom: 10px;">Flor Ochoa Morales</p>
+                        <p style="margin-bottom: 10px;">Adriana Valeria Rodriguez Barbosa</p>
+
+                        <br>
+                        <div class="contenedor-imagen">
+                            <img src="static/Reciclopes" alt="EcoCanje">
+                        </div>
+
+                        <style>
+                        .contenedor-imagen {
+                            display: flex;
+                            justify-content: center; 
+                            align-items: center;  
+                        }
+                        </style>
+
+                        <br>
+
+                        <div style="display: flex; gap: 15px; justify-content: center;">
+                            <a href="#" class="btn">Solicitar información</a>
+                            <a href="#" class="btn btn-secundario">Registrar comercio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="font-size: 2rem; margin-bottom: 10px;">EcoCanje Jalisco</div>
+            <p style="margin-bottom: 20px;">Sistema Estatal de Reciclaje y Recompensas</p>
+
+
+            <div class="ods">
+                <span class="ods-item">🌍 ODS 11: Ciudades sostenibles</span>
+                <span class="ods-item">♻️ ODS 12: Producción responsable</span>
+                <span class="ods-item">🌱 ODS 13: Acción por el clima</span>
+            </div>
+
+            <div class="copyright">
+                <p>Documento elaborado por: René Ramírez Venegas</p>
+                <p>Fecha: Febrero 2026 | Versión: 1.0 - Integración con Tarjeta Naranja</p>
+                <p style="margin-top: 15px;">© 2026 EcoCanje. Todos los derechos reservados.</p>
+                <p style="font-size: 0.8rem; margin-top: 10px;">Este documento no puede ser reproducido total o parcialmente.</p>
+            </div>
         </div>
+    </footer>
+
+    <div style="position: fixed; bottom: 30px; right: 30px;">
+        <a href="#inicio" style="background: var(--verde); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.5rem; box-shadow: 0 3px 10px rgba(0,0,0,0.2);">↑</a>
     </div>
 
     <script>
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+        if(entry.isIntersecting){
+        entry.target.style.opacity=1;
+        entry.target.style.transform="translateY(0)";
+        }
+        });
+        },{threshold:.1});
+
+        sections.forEach(section=>{
+        section.style.opacity=0;
+        section.style.transform="translateY(40px)";
+        observer.observe(section);
+        });
+</script>
+
 </body>
 </html>
