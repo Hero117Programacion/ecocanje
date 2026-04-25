@@ -133,19 +133,19 @@
                 <div class="card-container">
                     <div class="card">
                         <h4>🎯 General</h4>
-                        <p>Implementar una app estatal que reconozca al usuario mediante el escaneo de un QR y le otorgue puntos por reciclar.</p>
+                        <p>Desarrollar e implementar un sistema automatizado de reciclaje denominado EcoCanje Jalisco, que incentive la participación de estudiantes en prácticas sostenibles mediante el uso de recompensas económicas digitales, con el fin de reducir la generación de residuos y fomentar una cultura de reciclaje en el entorno escolar.</p>
                     </div>
                     <div class="card">
                         <h4>📊 Reducción</h4>
-                        <p>Disminuir los residuos mal clasificados en un 10% durante el primer año en el Área Metropolitana de Guadalajara.</p>
+                        <p>Aumentar un 10% el reciclaje en la Preparatoria Jalisco como prueba piloto.</p>
                     </div>
                     <div class="card">
                         <h4>🏪 Puntos</h4>
-                        <p>Se usaría un sistema de puntos, mediante el cual, se canjearia con saldo la tarjeta única o mi movilidad o donación a la Cruz Roja, ayudar a Reforestar Jalisco o el Hogar Cabañas; implementada por el gobierno de Jalisco, un ejemplo serían 10pts = 1 pesos mexicanos.</p>
+                        <p>Se usaría un sistema de puntos, mediante el cual, se canjearia con saldo la tarjeta única o mi movilidad o donación a la Cruz Roja, ayudar a Reforestar Jalisco o el Hogar Cabañas; que, si todo sale bien, sería implementada por el gobierno de Jalisco, 10pts = 1 pesos mexicanos.</p>
                     </div>
                     <div class="card">
                         <h4>🌱 Conciencia</h4>
-                        <p>Crear conciencia ambiental mediante gamificación y estadísticas personalizadas para la población jalisciense.</p>
+                        <p>Crear conciencia ambiental mediante gamificación y estadísticas personalizadas para la población jalisciense en general.</p>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                         Verifica al usuario y le asigna los puntos correspondientes al reciclar.
                         <br>
                         EcoCanje Jalisco es un sistema innovador de reciclaje automatizado que busca combatir la falta de cultura ambiental 
-                        y reducir la acumulación de residuos mediante incentivos económicos y sociales.
+                        y reducir la acumulación de residuos mediante incentivos económicos.
                         Cuenta con dos aplicaciones móviles para los dos sistemas operativos, 
                         Apple y Android, las cuales están en pruebas internas para poderse lanzar al mercado lo más pronto posible.
                         El proyecto consiste en la integración de una aplicación móvil con módulos físicos inteligentes de reciclaje.
@@ -173,7 +173,7 @@
                     </div>
                     <div class="feature-item">
                         <strong>🗺️ Mapa de puntos</strong><br>
-                        Ubica centros de acopio cercanos en Jalisco.
+                        Por ahora, el único centro de acopio es en la Preparatoria Jalisco. Expandiendose a más puntos próximamente.
                     </div>
                     <div class="feature-item">
                         <strong>🏷️ Recompensas</strong><br>
@@ -182,7 +182,7 @@
                     </div>
                     <div class="feature-item">
                         <strong>📊 Estadísticas personales</strong><br>
-                        Muestra historial, logros y motivación mediante gamificación.
+                        Muestra historial, logros, certificados y motivación mediante gamificación.
                     </div>
                 </div>
 
@@ -192,12 +192,14 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Paso 1: Registro</div>
-                        <p>Descarga gratuita, registro con correo válido y verificar cuenta</p>
+                        <p>Descarga gratuita, creación de la cuenta.</p>
                     </div>
+                    <br>
                     <div class="timeline-item">
                         <div class="timeline-date">Paso 2: Escaneo</div>
-                        <p>Abrir app, escanear QR, escoger el tipo de residuo</p>
+                        <p>Abrir app, escanear QR, escoger el tipo de residuo en el módulo.</p>
                     </div>
+                    <br>
                     <div class="timeline-item">
                         <div class="timeline-date">Paso 3: Acumulación</div>
                         <p>Depositar residuos en el centro de acopio, seguir indicaciones, recibir puntos.</p>
@@ -312,7 +314,7 @@
 
         </div>
 
-        <h3 style="margin-top:40px;">Costo estimado por contenedor</h3>
+        <h3 style="margin-top:40px;">Costo estimado por contenedor ($23,000 pesos mexicanos)</h3>
 
         <table>
             <thead>
@@ -322,16 +324,22 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>ESP32-CAM</td><td>$300 MXN</td></tr>
-                <tr><td>ESP32-WROOM</td><td>$250 MXN</td></tr>
-                <tr><td>Amplificador HX711</td><td>$125 MXN</td></tr>
-                <tr><td>Pulsadores, Cables, Servos</td><td>$400 MXN</td></tr>
-                <tr><td>Fuente de alimentación</td><td>$200 MXN</td></tr>
-                <tr><td>Estructura del contenedor</td><td>$1200 MXN</td></tr>
+                <tr><td>ESP32-CAM</td><td>$350 MXN</td></tr>
+                <tr><td>ESP32-WROOM</td><td>$350 MXN</td></tr>
+                <tr><td>Servomotores sg90 x3</td><td>$320 MXN</td></tr>
+                <tr><td>Pulsadores x3</td><td>$30 MXN</td></tr>
+                <tr><td>Amplificador HX711</td><td>$240 MXN</td></tr>
+                <tr><td>Leds y Buzzer</td><td>$40 MXN</td></tr>
+                <tr><td>Fuente de alimentación</td><td>$170 MXN</td></tr>
+                <tr><td>Madera del contenedor</td><td>$2000 MXN</td></tr>
+                <tr><td>Plexiglass y pintura</td><td>$1500 MXN</td></tr>
+                <tr><td>App de Apple (Costo en el mercado para un desarrollador, en este caso, yo desarrolle las apps)</td><td>$10,000 MXN</td></tr>
+                <tr><td>App de Android (Costo en el mercado para un desarrollador, en este caso, yo desarrolle las apps)</td><td>$8,000 MXN</td></tr>
+                <tr><td><strong>Costo total: </strong></td><td>$23000 MXN</td></tr>
             </tbody>
         </table>
 
-        <p><small>Costo total estimado por contenedor inteligente: $2500 MXN aproximadamente dependiendo del diseño.</small></p>
+        <p><small>Costo total estimado por contenedor inteligente: $23000 MXN aproximadamente dependiendo del diseño.</small></p>
     </div>
 </section>
 
@@ -341,7 +349,7 @@
 
         <section id="alianzas">
             <div class="container">
-                <h2>Modelo de Alianzas en Jalisco</h2>
+                <h2>¿Como sería la partificación del estaod de Jalisco si se logra implementar todo?</h2>
 
                 <div class="card-container">
                     <div class="card">
@@ -384,10 +392,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Vidrio</td><td>3 kg</td><td>24</td><td>No aplica (mínimo no alcanzado)</td></tr>
+                            <tr><td>Vidrio</td><td>3 kg</td><td>24</td><td>$2.4 MXN</td></tr>
                             <tr><td>Plástico PET</td><td>5 kg</td><td>250</td><td>$25 MXN</td></tr>
                             <tr><td>Papel/Cartón</td><td>10 kg</td><td>150</td><td>$15 MXN</td></tr>
-                            <tr><td><strong>Acumulado total</strong></td><td><strong>-</strong></td><td><strong>424 puntos</strong></td><td><strong>¡$40 MXN depositados!</strong> (Ejemplo con tasa 10 pts = $1)*</td></tr>
+                            <tr><td><strong>Acumulado total</strong></td><td><strong>-</strong></td><td><strong>424 puntos</strong></td><td><strong>¡$40 MXN que puedes usar en la tarjeta única o donar!</strong> (Ejemplo con tasa 10 pts = $1)*</td></tr>
 
                         </tbody>
                     </table>
@@ -405,7 +413,6 @@
                         <p><span class="badge">4 meses</span></p>
                         <ul>
                             <li>Desarrollo del Modelo</li>
-                            <li>Pruebas en escuelas de la Secretaría de Educación y UDG</li>
                             <li>Ajustes y correcciones</li>
                             <li>Aplicaciones para IOS y Android</li>
                         </ul>
@@ -415,9 +422,9 @@
                         <h4>Fase 2: Piloto</h4>
                         <p><span class="badge">6 meses</span></p>
                         <ul>
-                            <li>10 centros de acopio en Guadalajara, Zapopan y Tlaquepaque</li>
-                            <li>Campaña en colonias urbanas</li>
-                            <li>2,000 usuarios registrados</li>
+                            <li>1 centro de acopio en la Preparatoria Jalisco</li>
+                            <li>Ver uso de los estudiantes</li>
+                            <li>Al menos 100 usuarios registrados</li>
                         </ul>
                     </div>
 
@@ -425,8 +432,9 @@
                         <h4>Fase 3: Expansión</h4>
                         <p><span class="badge">12 meses</span></p>
                         <ul>
-                            <li>Cobertura en el Área Metropolitana de Guadalajara</li>
-                            <li>10,000 usuarios activos</li>
+                            <li>Hablar de la idea con el gobierno del estado de Jalisco para ver que les parece y saber si están interesados en participar</li>
+                            <li>Instalar más centros de acopio en más instituciones educativas.</li>
+                            <li>5,000 usuarios activos</li>
                             <li>Página Web Funcional</li>
                         </ul>
                     </div>
@@ -436,7 +444,7 @@
                         <p><span class="badge">Continuo</span></p>
                         <ul>
                             <li>Expansión a municipios del interior del estado</li>
-                            <li>50,000+ usuarios</li>
+                            <li>10,000+ usuarios</li>
                             <li>Mantenimiento continuo</li>
                         </ul>
                     </div>
@@ -471,10 +479,6 @@
 
                         <br>
 
-                        <div style="display: flex; gap: 15px; justify-content: center;">
-                            <a href="#" class="btn">Solicitar información</a>
-                            <a href="#" class="btn btn-secundario">Registrar comercio</a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -488,14 +492,15 @@
 
 
             <div class="ods">
-                <span class="ods-item">🌍 ODS 11: Ciudades sostenibles</span>
-                <span class="ods-item">♻️ ODS 12: Producción responsable</span>
-                <span class="ods-item">🌱 ODS 13: Acción por el clima</span>
+                <span class="ods-item">🌍 ODS 11: Ciudades sostenibles</span><br>
+                <span class="ods-item">♻️ ODS 12: Producción responsable</span><br>
+                <span class="ods-item">🌱 ODS 13: Acción por el clima</span><br>
             </div>
 
+            <br><br>
             <div class="copyright">
                 <p>Documento elaborado por: René Ramírez Venegas</p>
-                <p>Fecha: Febrero 2026 | Versión: 1.0 - Integración con Tarjeta Naranja</p>
+                <p>Fecha: Febrero 2026 | Versión: 1.0 - Integración con Tarjeta Única o Mi Movilidad</p>
                 <p style="margin-top: 15px;">© 2026 EcoCanje. Todos los derechos reservados.</p>
                 <p style="font-size: 0.8rem; margin-top: 10px;">Este documento no puede ser reproducido total o parcialmente.</p>
             </div>
